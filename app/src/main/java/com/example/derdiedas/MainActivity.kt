@@ -27,14 +27,6 @@ class MainActivity : AppCompatActivity() {
         FlashcardNoun("Ethik", "die", "etyka")
     )
 
-        /*
-        mapOf<String,String>("der" to "Gladiator","der" to "Säugling","der" to "Honig","der" to "Optimismus",
-            "das" to "Mädchen","das" to "Fräulein","das" to "Baum", "das" to "Trauma", "das" to "Apartment",
-            "das" to "Eigentum", "die" to "Aktion", "die" to "Bäckerei","die" to "Universität",
-            "die" to "Schönheit", "die" to "Freundschaft","die" to "Achtsamkeit", "die" to "Ethik" )
-        */
-    //val random = Random()
-    //var randomNoun = random.nextInt(germanNoun.count())
     fun zieherZahlfunction() : Int {
         val rand = Random()
         return rand.nextInt(artikelFlashCard.count())
