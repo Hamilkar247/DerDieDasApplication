@@ -2,8 +2,10 @@ package com.example.derdiedas
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
+import java.util.logging.Logger
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         FlashcardNoun("Ethik", "die", "etyka")
     )
 
+    var zieher = zieherZahlfunction()
+
     fun zieherZahlfunction() : Int {
         val rand = Random()
         return rand.nextInt(artikelFlashCard.count())
@@ -36,19 +40,45 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //set start text
+        zieher = zieherZahlfunction() //number of card
+        nounTxt.text = artikelFlashCard[zieher].germanNoun
+        Log.d("Main activity","Tekst wyswietlany:"+ nounTxt.text)
+
         dieButton.setOnClickListener {
-            val zieher = zieherZahlfunction()
+            Log.d("NOUNT-TEXT", nounTxt.text as String)
+            Log.d("DIEBUTTON-MAINACTIVITY", "die button")
+            zieher = zieherZahlfunction()
             nounTxt.text = artikelFlashCard[zieher].germanNoun
+            if(artikelFlashCard[zieher].germanArtikel == "die") {
+                Log.d("DIEBUTTON-MAINACTiVITY", "dobrze wybrałeś")
+            }else {
+                Log.d("DIEBUTTON-MAINACTiVITY", "nie zgadłeś")
+            }
         }
 
         derButton.setOnClickListener {
-            val zieher = zieherZahlfunction()
+            Log.d("NOUNT-TEXT", nounTxt.text as String)
+            Log.d("DERBUTTON-MAINACTIVITY", "der button")
+            zieher = zieherZahlfunction()
             nounTxt.text = artikelFlashCard[zieher].germanNoun
+            if(artikelFlashCard[zieher].germanArtikel == "die") {
+                Log.d("DIEBUTTON-MAINACTiVITY", "dobrze wybrałeś")
+            }else {
+                Log.d("DIEBUTTON-MAINACTiVITY", "nie zgadłeś")
+            }
         }
 
         dasButton.setOnClickListener {
-            val zieher = zieherZahlfunction()
+            Log.d("NOUNT-TEXT", nounTxt.text as String)
+            Log.d("DIEBUTTON-MAINACTIVITY","das button")
+            zieher = zieherZahlfunction()
             nounTxt.text = artikelFlashCard[zieher].germanNoun
+            if(artikelFlashCard[zieher].germanArtikel == "die") {
+                Log.d("DIEBUTTON-MAINACTiVITY", "dobrze wybrałeś")
+            }else {
+                Log.d("DIEBUTTON-MAINACTiVITY", "nie zgadłeś")
+            }
         }
     }
 }
